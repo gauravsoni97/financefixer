@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import myImg from "../../../assets/Images/gauravsoni.png";
+import myImg from "../../../../assets/Images/gauravsoni.png";
 
 const ProfileHero = () => {
   const [showDropdown, setShowDropdown] = useState(false);

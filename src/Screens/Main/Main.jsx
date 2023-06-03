@@ -9,16 +9,14 @@ const Main = () => {
   const [modal, setModal] = useState(false);
 
   return (
-    <div className=" h-screen w-screen  p-3  bg-gray-50 dark:bg-gray-900">
+    <div className=" h-screen w-screen  p-6  bg-gray-50 dark:bg-gray-900">
       {modal ? (
         <ResetAppModal setModal={setModal} />
       ) : (
         <>
           <ProfileHero />
           <MonthlyInput setModal={setModal} />
-          <hr class="h-px my-4 bg-gray-100 border-0 dark:bg-gray-700" />
           <BalanceStats />
-          <hr class="h-px my-4 bg-gray-100 border-0 dark:bg-gray-800" />
           <RedirectTabButtons text="Needs & Wants (70%)" />
           <RedirectTabButtons text="Investments (30%)" />
         </>

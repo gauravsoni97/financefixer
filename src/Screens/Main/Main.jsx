@@ -1,14 +1,25 @@
-import React from 'react'
-import ProfileHero from './ProfileHero/ProfileHero'
-import MonthlyInput from './MonthlyInput/MonthlyInput'
+import React, { useState } from "react";
+import ProfileHero from "./ProfileHero/ProfileHero";
+import MonthlyInput from "./MonthlyInput/MonthlyInput";
+import BalanceStats from "../../Components/Stats/BalanceStats";
+import ResetAppModal from "./ResetAppModal/ResetAppModal";
 
 const Main = () => {
-  return (
-    <div className=' h-screen w-screen  p-3  bg-gray-50 dark:bg-gray-900'>
-      <ProfileHero/>
-      <MonthlyInput/>
-    </div>
-  )
-}
+  const [modal, setModal] = useState(false);
 
-export default Main
+  return (
+    <div className=" h-screen w-screen  p-3  bg-gray-50 dark:bg-gray-900">
+      {modal ? (
+        <ResetAppModal  setModal={setModal}/>
+      ) : (
+        <>
+          <ProfileHero />
+          <MonthlyInput setModal={setModal} />
+          <BalanceStats />
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Main;

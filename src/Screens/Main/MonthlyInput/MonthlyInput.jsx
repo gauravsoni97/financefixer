@@ -13,7 +13,7 @@ const MonthlyInput = ({setModal}) => {
   const onSubmit = () => {};
 
   return (
-    <div className="py-6">
+    <div className="pt-6 pb-4">
       <form onSubmit={handleSubmit}>
         <div class="mb-6">
           <label

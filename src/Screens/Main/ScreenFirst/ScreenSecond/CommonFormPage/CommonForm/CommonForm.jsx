@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-const NeedsWantsForm = () => {
+const CommonForm = () => {
   return (
     <>
-      <div className="pt-6 pb-4">
+    <div className="pt-6 pb-4">
         <form>
           <div class="mb-4">
             <label
@@ -64,8 +64,9 @@ const NeedsWantsForm = () => {
           </button>
         </form>
       </div>
-    </>
-  );
-};
 
-export default NeedsWantsForm;
+    </>
+  )
+}
+
+export default CommonForm

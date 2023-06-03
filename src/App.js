@@ -1,15 +1,14 @@
 import React from "react";
 import Login from "./Screens/Login/Login";
 import Main from "./Screens/Main/Main";
-import NeedsWants from "./Screens/NeedsWants/NeedsWants";
+import CommonFormPage from "./Screens/Main/ScreenFirst/ScreenSecond/CommonFormPage/CommonFormPage";
+import Transactions from "./Screens/Main/ScreenFirst/ScreenSecond/ScreenThird/Transactions/Transactions";
 
 const App = () => {
 
   return (
-    <div>
-      {/* <Login /> */}
-      {/* <Main /> */}
-      <NeedsWants/>
+    <div className="max-w-md mx-auto " >
+      <Transactions/>
     </div>
   );
 };

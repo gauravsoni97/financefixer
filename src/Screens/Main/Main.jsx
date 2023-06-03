@@ -9,7 +9,7 @@ const Main = () => {
   const [modal, setModal] = useState(false);
 
   return (
-    <div className=" h-screen w-screen  p-6  bg-gray-50 dark:bg-gray-900">
+    <div className=" p-6 h-screen w-screen bg-gray-50 dark:bg-gray-900">
       {modal ? (
         <ResetAppModal setModal={setModal} />
       ) : (

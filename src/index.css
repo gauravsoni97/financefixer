@@ -6,6 +6,8 @@
 body{
     background-color: #111827;
     color: #ffffffd0;
+    max-width: 100vw;
+    max-height: 100vh;
     overflow: hidden;
 
 }

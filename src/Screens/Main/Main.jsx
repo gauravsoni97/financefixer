@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ProfileHero from "./ProfileHero/ProfileHero";
 import BalanceStats from "../../Components/Stats/BalanceStats";
-import ResetAppModal from "./ResetAppModal/ResetAppModal";
 import RedirectTabButtons from "../../Components/RedirectButtons/RedirectTabButtons";
 import MonthlyInput from "./ScreenFirst/MonthlyInput/MonthlyInput";
+import ProfileHero from "./ScreenFirst/ProfileHero/ProfileHero";
+import ResetAppModal from "./ScreenFirst/ResetAppModal/ResetAppModal";
 
 const Main = () => {
   const [modal, setModal] = useState(false);

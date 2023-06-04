@@ -18,7 +18,7 @@ const Main = () => {
           <ProfileHero />
           <MonthlyInput setModal={setModal} />
           <BalanceStats />
-
+          <div className="flex flex-col">
           <Link to="/commonformpage">
             <button
               type="button"
@@ -35,6 +35,9 @@ const Main = () => {
               Investments (30%)
             </button>
           </Link>
+
+          </div>
+
         </>
       )}
     </div>

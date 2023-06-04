@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ResetAppModal from "../ResetAppModal/ResetAppModal";
 
 const MonthlyInput = ({setModal}) => {
 

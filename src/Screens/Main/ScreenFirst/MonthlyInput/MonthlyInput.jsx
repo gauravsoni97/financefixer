@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 
-const MonthlyInput = ({ setModal }) => {
+const MonthlyInput = ({ setModal, incomeForm }) => {
   const handleResetModal = () => {
     setModal(true);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-  const onSubmit = () => {};
-
   return (
     <div className="pt-6 max-w-md">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={incomeForm.handleSubmit}>
         <div class="mb-4">
           <label
             for="email"
@@ -21,16 +16,27 @@ const MonthlyInput = ({ setModal }) => {
             Enter your monthly income
           </label>
           <input
-            type="number"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            name="income"
+            min={0}
+            type="number"
             placeholder="100000"
-            required
-            min={1}
-            max={999999999}
+            value={incomeForm.values.income}
+            onChange={incomeForm.handleChange}
           />
+          <p
+            className={
+              incomeForm.touched.income && incomeForm.errors.income
+                ? "text-red-600  text-xs font-medium mt-2"
+                : ""
+            }
+          >
+            {incomeForm.touched.income && incomeForm.errors.income
+              ? incomeForm.errors.income
+              : ""}
+          </p>
         </div>
         <button
-          onSubmit={onSubmit}
           type="submit"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 max-w-md  w-full"
         >

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const MonthlyInput = ({setModal}) => {
-
+const MonthlyInput = ({ setModal }) => {
   const handleResetModal = () => {
     setModal(true);
   };
@@ -12,12 +11,12 @@ const MonthlyInput = ({setModal}) => {
   const onSubmit = () => {};
 
   return (
-    <div className="pt-6 pb-4 max-w-md">
+    <div className="pt-6 max-w-md">
       <form onSubmit={handleSubmit}>
-        <div class="mb-6">
+        <div class="mb-4">
           <label
             for="email"
-            class="block mb-2 text-md font-medium text-gray-900 dark:text-white"
+            class="block mb-3 text-md font-medium text-gray-900 dark:text-white"
           >
             Enter your monthly income
           </label>
@@ -38,12 +37,14 @@ const MonthlyInput = ({setModal}) => {
           Add Amount
         </button>
       </form>
+      <br />
+      <hr class="h-px mb-4 bg-gray-100 border-0 dark:bg-gray-700 max-w-md" />
 
       <center>
         <button
           onClick={handleResetModal}
           type="button"
-          class="py-2.5 px-5 mt-6 mr-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 italic w-full"
+          class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 italic w-full"
         >
           Reset web app
         </button>

@@ -10,7 +10,7 @@ const App = () => {
     <div className="max-w-md mx-auto ">
       <Routes>
         <Route path="/" Component={Main} />
-        <Route path="/commonform" Component={CommonFormPage} />
+        <Route path="/commonformpage" Component={CommonFormPage} />
         <Route path="/transactions" Component={Transactions} />
         <Route path="/login" Component={Login} />
       </Routes>

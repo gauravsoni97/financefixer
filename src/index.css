@@ -14,22 +14,22 @@ body{
 
 /* width */
 ::-webkit-scrollbar {
-    width: 1px;
+    width: 4px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #11182700; 
+    box-shadow: inset 0 0 5px #36363680; 
     border-radius: 10px;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #11182700; 
+    background: #505050d2; 
     border-radius: 10px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #171d2b00; 
+    background: #646464dc; 
   }

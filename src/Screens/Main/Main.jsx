@@ -17,8 +17,11 @@ const Main = () => {
           <ProfileHero />
           <MonthlyInput setModal={setModal} />
           <BalanceStats />
+          <div className="flex flex-col">
+
           <RedirectTabButtons text="Needs & Wants (70%)" />
           <RedirectTabButtons text="Investments (30%)" />
+          </div>
         </>
       )}
     </div>

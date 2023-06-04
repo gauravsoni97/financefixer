@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <div className="max-w-md mx-auto " >
-      <Transactions/>
+      <Main/>
     </div>
   );
 };

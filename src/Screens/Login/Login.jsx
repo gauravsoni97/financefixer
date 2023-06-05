@@ -4,7 +4,7 @@ import logo from "../../assets/Images/rupeelogo.png";
 const Login = () => {
   return (
     <div>
-      <section className=" h-screen w-screen flex items-center justify-center  bg-gray-50 dark:bg-gray-900">
+      <section className=" h-screen max-w-md w-screen flex items-center justify-center  bg-gray-50 dark:bg-gray-900">
         <div className="flex w-screen flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a
             href="#"

@@ -1,6 +1,4 @@
 import React from "react";
-import GoogleIcon from "../../Components/IconComponent/GoogleIcon";
-import FacebookIcon from "../../Components/IconComponent/FacebookIcon";
 import logo from "../../assets/Images/rupeelogo.png";
 
 const Login = () => {
@@ -27,8 +25,9 @@ const Login = () => {
                       href="#"
                       className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                     >
-                      <GoogleIcon />
-                      <span className="flex-1 ml-3 whitespace-nowrap">Sign in with Google</span>
+                      <span className="flex-1 ml-3 whitespace-nowrap">
+                        Sign in with Google
+                      </span>
                     </a>
                   </li>
                   <li>
@@ -36,7 +35,6 @@ const Login = () => {
                       href="#"
                       className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                     >
-                      <FacebookIcon />
                       <span className="flex-1 ml-3 whitespace-nowrap">
                         Sign in with Facebook
                       </span>

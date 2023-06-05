@@ -1,5 +1,4 @@
 import React from "react";
-import "./Login.css";
 import GoogleIcon from "../../Components/IconComponent/GoogleIcon";
 import FacebookIcon from "../../Components/IconComponent/FacebookIcon";
 import logo from "../../assets/Images/rupeelogo.png";

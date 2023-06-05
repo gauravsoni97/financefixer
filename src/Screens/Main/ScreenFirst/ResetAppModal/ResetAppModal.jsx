@@ -2,9 +2,9 @@ import React from 'react'
 
 const ResetAppModal = ({setModal}) => {
     
-  return (
+  return ( 
     <>
-    <div className="h-[90vh] w-full flex items-center justify-center">
+    <div className="h-[90vh] w-full max-w-md flex items-center justify-center">
 
     <div id="popup-modal"  class="">
     <div class="relative w-full max-w-md">

@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "../../assets/Images/rupeelogo.png";
+import googleimg from "../../assets/Images/google.png";
+import facebookImg from "../../assets/Images/facebook.png";
 
 const Login = () => {
   return (
@@ -10,7 +12,7 @@ const Login = () => {
             href="#"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
-            <img className="w-8 h-8 mr-2" src={logo} alt="logo" />
+            <img className="w-7 h-7 mr-2" src={logo} alt="logo" />
             Finance Fixer
           </a>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -25,6 +27,11 @@ const Login = () => {
                       href="#"
                       className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                     >
+                      <img
+                        className="w-6 h-6"
+                        src={googleimg}
+                        alt="Google Img"
+                      />
                       <span className="flex-1 ml-3 whitespace-nowrap">
                         Sign in with Google
                       </span>
@@ -35,6 +42,12 @@ const Login = () => {
                       href="#"
                       className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                     >
+                      <img
+                        className="w-6 h-6"
+                        src={facebookImg}
+                        alt="Google Img"
+                      />
+
                       <span className="flex-1 ml-3 whitespace-nowrap">
                         Sign in with Facebook
                       </span>

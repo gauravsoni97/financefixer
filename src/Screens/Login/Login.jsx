@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/Images/rupeelogo.png";
 import googleimg from "../../assets/Images/google.png";
 import facebookImg from "../../assets/Images/facebook.png";
 
+import { auth, provider } from "../../Utils/firebase";
+
+import { signInWithPopup } from "firebase/auth";
+
 const Login = () => {
+  const [value, setValue] = useState("");
+
+  const handleGoogleClick = () => {
+    signInWithPopup(auth, provider).then((data) => {
+      setValue(data.user.email);
+
+      localStorage.setItem("email", data.user.email);
+    });
+  };
+
+  useEffect(() => {
+    setValue(localStorage.getItem("email"));
+  }, []);
+
   return (
     <div>
+      {value? "i am logged in " : 
+      
       <section className=" h-screen max-w-md w-screen flex items-center justify-center  bg-gray-50 dark:bg-gray-900">
         <div className="flex w-screen flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a
@@ -24,6 +44,7 @@ const Login = () => {
                 <ul className="my-4 space-y-3">
                   <li>
                     <a
+                      onClick={handleGoogleClick}
                       href="#"
                       className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                     >
@@ -59,6 +80,7 @@ const Login = () => {
           </div>
         </div>
       </section>
+      }
     </div>
   );
 };

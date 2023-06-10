@@ -5,7 +5,7 @@ import Main from "./Screens/Main/Main";
 
 const App = () => {
   return (
-    <div className="max-w-md mx-auto ">
+    <div className="max-w-sm max-h-screen mx-auto  ">
       <Login />
     </div>
   );

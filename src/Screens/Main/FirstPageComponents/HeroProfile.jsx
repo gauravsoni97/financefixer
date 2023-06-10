@@ -37,13 +37,13 @@ const HeroProfile = () => {
         {dropdownOpen ? (
           <div
             id="dropdown"
-            class="z-10 absolute top-8 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-18 dark:bg-gray-700"
+            class="z-10 absolute right-8 text-base list-none bg-white  rounded-md shadow w-18 dark:bg-gray-700"
           >
             <ul class="" aria-labelledby="dropdownButton">
               <li>
                 <a
                   href="#"
-                  class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white rounded-lg "
+                  class="block px-4 py-1.5 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white rounded-lg "
                 >
                   Logout
                 </a>

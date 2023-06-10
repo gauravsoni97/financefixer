@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import HeroProfile from "./FirstPageComponents/HeroProfile";
-import HeroForm from "./FirstPageComponents/HeroForm";
-import TotalBalance from "./FirstPageComponents/TotalBalance";
-import RedirectToPage from "./FirstPageComponents/RedirectToPage";
+import HeroProfile from "./HeroProfile";
+import HeroForm from "./HeroForm";
+import TotalBalance from "./TotalBalance";
+import RedirectToPage from "./RedirectToPage";
 
 const FirstPage = ({ setInputAmount, goToNeedsWantsForm }) => {
   const [inputAmountFirst, setInputAmountFirst] = useState("");

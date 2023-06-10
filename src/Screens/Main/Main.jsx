@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import FirstPage from "./FirstPage";
-import NeedsWantsForm from "./NeedsWantsForm";
-import NeedsWantsTransactions from "./NeedsWantsTransactions";
+import FirstPage from "./FirstPageComponents/FirstPage";
+import NeedsWantsForm from "./NeedsWants/NeedsWantsForm";
+import NeedsWantsTransactions from "./NeedsWants/NeedsWantsTransactions";
 
 const Main = () => {
   const [inputAmount, setInputAmount] = useState("");

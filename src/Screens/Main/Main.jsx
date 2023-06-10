@@ -4,18 +4,29 @@ import NeedsWantsForm from "./NeedsWants/NeedsWantsForm";
 import NeedsWantsTransactions from "./NeedsWants/NeedsWantsTransactions";
 
 const Main = () => {
-  const [inputAmount, setInputAmount] = useState("");
   const [screen, setScreen] = useState(0);
-useEffect(() => {
- setScreen(0)
-}, [])
+  const [inputAmount, setInputAmount] = useState("");
+
+
+  const needsWantsAmount = Math.round(inputAmount * 0.7);
+
+
+  useEffect(() => {
+    setScreen(0);
+  }, []);
 
   return (
     <div className="max-w-sm mt-4">
       {screen === 0 ? (
-        <FirstPage setInputAmount={setInputAmount}  goToNeedsWantsForm={()=>setScreen(1)}/>
+        <FirstPage
+          setInputAmount={setInputAmount}
+          goToNeedsWantsForm={() => setScreen(1)}
+        />
       ) : screen === 1 ? (
-        <NeedsWantsForm inputAmount={inputAmount} goToHome={()=>setScreen(0)} />
+        <NeedsWantsForm
+          needsWantsAmount={needsWantsAmount}
+          goToHome={() => setScreen(0)}
+        />
       ) : (
         <NeedsWantsTransactions />
       )}

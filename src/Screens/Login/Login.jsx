@@ -26,7 +26,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="h-screen max-w-sm w-screen flex items-start justify-center ">
+    <div className="h-screen max-w-sm w-screen flex items-start justify-center p-3 ">
       {value ? (
       <Main/>
       ) : (

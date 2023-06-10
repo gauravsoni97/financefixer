@@ -35,10 +35,3 @@ body{
   }
 
 
-  button{
-    background: rgb(255, 255, 255) !important;
-    color: black !important;
-    border:  1px solid red;
-    padding: .4rem;
-    margin: 1rem;
-  }

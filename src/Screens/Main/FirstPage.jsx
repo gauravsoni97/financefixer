@@ -1,15 +1,19 @@
 import React, { useState } from "react";
+import HeroProfile from "./FirstPageComponents/HeroProfile";
+import HeroForm from "./FirstPageComponents/HeroForm";
+import TotalBalance from "./FirstPageComponents/TotalBalance";
+import RedirectToPage from "./FirstPageComponents/RedirectToPage";
 
 const FirstPage = ({ setInputAmount, goToNeedsWantsForm }) => {
   const [inputAmountFirst, setInputAmountFirst] = useState("");
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setInputAmount(inputAmountFirst);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setInputAmount(inputAmountFirst);
+  // };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input
           className="bg-gray-800"
           type="number"
@@ -22,7 +26,16 @@ const FirstPage = ({ setInputAmount, goToNeedsWantsForm }) => {
 
       <button onClick={() => goToNeedsWantsForm()}>
         Go to Needs Wants Form
-      </button>
+      </button> */}
+
+      {/* ------------------------------------------------------------------------ */}
+      {/* ------------- NEW  UI ----------------  */}
+      {/* ------------------------------------------------------------------------ */}
+
+      <HeroProfile />
+      <HeroForm />
+      <TotalBalance />
+      <RedirectToPage />
     </div>
   );
 };

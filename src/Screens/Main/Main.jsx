@@ -11,7 +11,7 @@ useEffect(() => {
 }, [])
 
   return (
-    <div>
+    <div className="max-w-sm p-2">
       {screen === 0 ? (
         <FirstPage setInputAmount={setInputAmount}  goToNeedsWantsForm={()=>setScreen(1)}/>
       ) : screen === 1 ? (

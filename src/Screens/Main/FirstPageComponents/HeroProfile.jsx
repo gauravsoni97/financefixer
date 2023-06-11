@@ -3,13 +3,10 @@ import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import myImg from "../../../assets/Images/gauravsoni.png";
 
-import { provider } from "../../../Utils/firebase";
-
 const HeroProfile = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [toggleIcon, setToggleIcon] = useState(false);
 
-  console.log(provider , " auth in hero ");
 
   const handleLogoutButton = () => {
     localStorage.clear();
@@ -30,7 +27,7 @@ const HeroProfile = () => {
           alt="Profile Image"
         />
         <h1 className="mb-1 text-lg font-medium text-gray-900 dark:text-white">
-          Hi,
+          Hi, Gaurav
         </h1>
       </div>
       <div className=" w-[20%] relative flex justify-end ">
@@ -46,15 +43,23 @@ const HeroProfile = () => {
         {dropdownOpen ? (
           <div
             id="dropdown"
-            className="z-10 absolute right-8 text-base list-none bg-white  rounded-md shadow w-18 dark:bg-gray-700"
+            className="z-10 absolute top-8 text-base list-none bg-white  rounded-md shadow w-24 dark:bg-gray-700"
           >
-            <ul className="" aria-labelledby="dropdownButton">
+            <ul  aria-labelledby="dropdownButton">
               <li>
                 <span
                   onClick={handleLogoutButton}
-                  className="block px-4 py-1.5 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white rounded-lg "
+                  className="block px-4 py-1.5 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white rounded-lg cursor-pointer "
                 >
                   Logout
+                </span>
+              </li>
+              <li>
+                <span
+                  onClick={handleLogoutButton}
+                  className="block px-4 py-1.5 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white rounded-lg cursor-pointer"
+                >
+                  Reset App
                 </span>
               </li>
             </ul>

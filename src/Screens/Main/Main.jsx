@@ -3,17 +3,38 @@ import FirstPage from "./FirstPageComponents/FirstPage";
 import NWIForm from "./NWIForm/NWIForm";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import AllTransactions from "./AllTransactions/AllTransactions";
 
 const Main = () => {
   const [screen, setScreen] = useState(0);
-  const [splitAmounts, setSplitAmounts] = useState({
-    nwFromHome: 0,
-    invFromHome: 0,
-  });
+  const [transactionScreen, setTransactionScreen] = useState(false);
 
-  const [arrayOfNeeds, setArrayOfNeeds] = useState([]);
+  const [splitAmounts, setSplitAmounts] = useState(
+    JSON.parse(localStorage.getItem("splitAmounts")) || {
+      nwFromHome: 0,
+      invFromHome: 0,
+    }
+  );
+
+  const [selectedMonth, setSelectedMonth] = useState(0);
+
+  const [arrayOfNeeds, setArrayOfNeeds] = useState(
+    JSON.parse(localStorage.getItem("needsArray")) || []
+  );
 
   console.log(arrayOfNeeds);
+  const [filteredNeedsArray, setFilteredNeedsArray] = useState([]);
+
+  const handleMonthFilter = (e) => {
+    setSelectedMonth(e.target.value);
+    const splitArrayOfNeeds = arrayOfNeeds.filter((ele) => {
+      const month = Math.floor(parseInt(ele.pickedDate.split("-")[1]));
+      return month === e.target.value;
+    });
+
+    setFilteredNeedsArray(splitArrayOfNeeds);
+  };
+
   // ------------------- Income form code --------------------------
 
   const incomeForm = useFormik({
@@ -70,25 +91,54 @@ const Main = () => {
     },
   });
 
+  let needsTotalListSum = arrayOfNeeds
+    .map((obj) => obj.price)
+    .reduce((acc, cur) => acc + cur, 0);
+
+  const deleteNeedsFromList = (curInd) => {
+    const updatedList = arrayOfNeeds.filter((ele, arrInd) => {
+      return arrInd !== curInd;
+    });
+    setArrayOfNeeds(updatedList);
+  };
+
   useEffect(() => {
     setScreen(0);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("needsArray", JSON.stringify(arrayOfNeeds));
+  }, [arrayOfNeeds]);
+
+  useEffect(() => {
+    const splitArrayOfNeeds = arrayOfNeeds.filter((ele) => {
+      const month = Math.floor(parseInt(ele.pickedDate.split("-")[1]));
+      return month === selectedMonth;
+    });
+    setFilteredNeedsArray(splitArrayOfNeeds);
   }, []);
 
   return (
     <div className="max-w-sm ">
       {screen === 0 ? (
-        <FirstPage
-          incomeForm={incomeForm}
-          goToNeedsWantsForm={() => setScreen(1)}
-        />
+        <FirstPage incomeForm={incomeForm} goToneedsForm={() => setScreen(1)} />
       ) : screen === 1 ? (
         <NWIForm
           needsForm={needsForm}
           splitAmounts={splitAmounts}
           goToHome={() => setScreen(0)}
+          needsTotalListSum={needsTotalListSum}
+          selectedMonth={selectedMonth}
+          handleMonthFilter={handleMonthFilter}
+          arrayOfNeeds={arrayOfNeeds}
+          filteredNeedsArray={filteredNeedsArray}
+          deleteNeedsFromList={deleteNeedsFromList}
+          goToTransactions={() => setScreen(2)}
         />
+      ) : screen === 2 ? (
+        <AllTransactions />
       ) : (
-        <>"Error Page"</>
+        <></>
       )}
     </div>
   );

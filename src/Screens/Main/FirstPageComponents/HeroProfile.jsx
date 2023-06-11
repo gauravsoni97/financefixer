@@ -8,8 +8,11 @@ const HeroProfile = () => {
   const [toggleIcon, setToggleIcon] = useState(false);
 
 
+  const handleResetApp = () => {
+    
+  };
   const handleLogoutButton = () => {
-    localStorage.clear();
+    localStorage.removeItem("userEmail");
     window.location.reload();
   };
   const handleHeroDropdown = () => {
@@ -56,7 +59,7 @@ const HeroProfile = () => {
               </li>
               <li>
                 <span
-                  onClick={handleLogoutButton}
+                  onClick={handleResetApp}
                   className="block px-4 py-1.5 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white rounded-lg cursor-pointer"
                 >
                   Reset App

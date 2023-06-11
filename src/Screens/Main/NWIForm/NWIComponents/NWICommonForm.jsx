@@ -1,22 +1,79 @@
 import React from "react";
 
-const NWICommonForm = () => {
+const NWICommonForm = ({ needsForm }) => {
   return (
-    <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-3 md:p-8 shadow dark:bg-gray-800 dark:border-gray-700 mb-2">
-      <form className="space-y-3">
+    <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-3 md:p-8 shadow dark:bg-gray-800 dark:border-gray-700 mb-3">
+      <form className="space-y-3" onSubmit={needsForm.handleSubmit}>
         <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
           Enter Date
         </label>
         <input
-          type="number"
-          name="income"
-          id="income"
+          type="date"
+          name="itemDate"
+          id="itemDate"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
-          placeholder="100000"
-          required
-          // value={inputAmountFirst}
-          // onChange={(e) => setInputAmountFirst(e.target.value)}
+          placeholder="MM"
+          value={needsForm.values.itemDate}
+          onChange={needsForm.handleChange}
         />
+        <p
+          className={
+            needsForm.touched.itemDate && needsForm.errors.itemDate
+              ? "text-red-600  text-xs  font-medium"
+              : ""
+          }
+        >
+          {needsForm.touched.itemDate && needsForm.errors.itemDate
+            ? needsForm.errors.itemDate
+            : ""}
+        </p>
+
+        <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+          Enter Name
+        </label>
+        <input
+          name="itemName"
+          type="text"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
+          placeholder="Sugar"
+          value={needsForm.values.itemName}
+          onChange={needsForm.handleChange}
+        />
+        <p
+          className={
+            needsForm.touched.itemName && needsForm.errors.itemName
+              ? "text-red-600  text-xs  font-medium"
+              : ""
+          }
+        >
+          {needsForm.touched.itemName && needsForm.errors.itemName
+            ? needsForm.errors.itemName
+            : ""}
+        </p>
+
+        <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+          Enter Amount
+        </label>
+        <input
+          name="itemPrice"
+          type="number"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
+          min="0"
+          placeholder="10000"
+          value={needsForm.values.itemPrice}
+          onChange={needsForm.handleChange}
+        />
+        <p
+          className={
+            needsForm.touched.itemPrice && needsForm.errors.itemPrice
+              ? "text-red-600  text-xs  font-medium"
+              : ""
+          }
+        >
+          {needsForm.touched.itemPrice && needsForm.errors.itemPrice
+            ? needsForm.errors.itemPrice
+            : ""}
+        </p>
 
         <button
           type="submit"

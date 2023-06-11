@@ -4,11 +4,11 @@ import NWICommonForm from "./NWIComponents/NWICommonForm";
 import NWIBalanceStats from "./NWIComponents/NWIBalanceStats";
 import GoToTransactions from "./NWIComponents/GoToTransactions";
 
-const NWIForm = ({ goToHome, splitAmounts }) => {
+const NWIForm = ({ needsForm, goToHome, splitAmounts }) => {
   return (
-    <div>
+    <div className="w-96 max-w-sm p-3">
       <ProfileHeader goToHome={goToHome} />
-      <NWICommonForm />
+      <NWICommonForm needsForm={needsForm} />
       <NWIBalanceStats />
       <GoToTransactions />
     </div>

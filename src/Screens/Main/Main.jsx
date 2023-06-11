@@ -11,8 +11,10 @@ const Main = () => {
     invFromHome: 0,
   });
 
-  console.log(splitAmounts.nwFromHome, "needsWantFromHome");
-  // ---------------------------------------------
+  const [arrayOfNeeds, setArrayOfNeeds] = useState([]);
+
+  console.log(arrayOfNeeds);
+  // ------------------- Income form code --------------------------
 
   const incomeForm = useFormik({
     initialValues: { income: "" },
@@ -32,6 +34,42 @@ const Main = () => {
     },
   });
 
+  // --------------------- Needs Wants form -----------------------------
+
+  const needsForm = useFormik({
+    initialValues: {
+      itemDate: "",
+      itemName: "",
+      itemPrice: "",
+    },
+
+    validationSchema: Yup.object({
+      itemDate: Yup.date().required("Date is Required*"),
+      itemName: Yup.string()
+        .max(20, "Enter name less than 20 character*")
+        .required("Name is Required*"),
+
+      itemPrice: Yup.number()
+        .max(1000000000000, "Enter amount less than 1 Trillion*")
+        .required("Amount is Required*"),
+    }),
+
+    onSubmit: (values) => {
+      setArrayOfNeeds((preval) => {
+        return [
+          {
+            pickedDate: values.itemDate,
+            name: values.itemName,
+            price: values.itemPrice,
+          },
+          ...preval,
+        ];
+      });
+      // setSelectedMonth(0);
+      needsForm.resetForm();
+    },
+  });
+
   useEffect(() => {
     setScreen(0);
   }, []);
@@ -44,9 +82,13 @@ const Main = () => {
           goToNeedsWantsForm={() => setScreen(1)}
         />
       ) : screen === 1 ? (
-        <NWIForm splitAmounts={splitAmounts} goToHome={() => setScreen(0)} />
+        <NWIForm
+          needsForm={needsForm}
+          splitAmounts={splitAmounts}
+          goToHome={() => setScreen(0)}
+        />
       ) : (
-        <>Error Page</>
+        <>"Error Page"</>
       )}
     </div>
   );

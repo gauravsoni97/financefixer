@@ -4,11 +4,11 @@ import HeroForm from "./HeroForm";
 import TotalBalance from "./TotalBalance";
 import RedirectToPage from "./RedirectToPage";
 
-const FirstPage = ({ setInputAmount, goToNeedsWantsForm }) => {
+const FirstPage = ({ incomeForm, goToNeedsWantsForm }) => {
   return (
     <div>
       <HeroProfile />
-      <HeroForm setInputAmount={setInputAmount} />
+      <HeroForm incomeForm={incomeForm} />
       <TotalBalance />
       <RedirectToPage goToNeedsWantsForm={goToNeedsWantsForm} />
     </div>

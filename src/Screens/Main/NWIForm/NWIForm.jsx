@@ -4,7 +4,7 @@ import NWICommonForm from "./NWIComponents/NWICommonForm";
 import NWIBalanceStats from "./NWIComponents/NWIBalanceStats";
 import GoToTransactions from "./NWIComponents/GoToTransactions";
 
-const NWIForm = ({ goToHome, needsWantsAmount }) => {
+const NWIForm = ({ goToHome, splitAmounts }) => {
   return (
     <div>
       <ProfileHeader goToHome={goToHome} />

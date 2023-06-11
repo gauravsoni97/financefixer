@@ -1,16 +1,36 @@
 import React, { useEffect, useState } from "react";
 import FirstPage from "./FirstPageComponents/FirstPage";
 import NWIForm from "./NWIForm/NWIForm";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Main = () => {
   const [screen, setScreen] = useState(0);
-  const [inputAmount, setInputAmount] = useState(null);
+  const [splitAmounts, setSplitAmounts] = useState({
+    nwFromHome: 0,
+    invFromHome: 0,
+  });
 
+  console.log(splitAmounts.nwFromHome, "needsWantFromHome");
+  // ---------------------------------------------
 
-  const needsWantsAmount = Math.round(inputAmount * 0.7);
+  const incomeForm = useFormik({
+    initialValues: { income: "" },
 
+    validationSchema: Yup.object({
+      income: Yup.number()
+        .max(1000000000000, "Enter amount less than 1 Trillion*")
+        .required("Amount is Required*"),
+    }),
 
-  console.log(needsWantsAmount);
+    onSubmit: (values) => {
+      setSplitAmounts({
+        nwFromHome: values.income * 0.7,
+        invFromHome: values.income * 0.3,
+      });
+      incomeForm.resetForm();
+    },
+  });
 
   useEffect(() => {
     setScreen(0);
@@ -20,16 +40,13 @@ const Main = () => {
     <div className="max-w-sm ">
       {screen === 0 ? (
         <FirstPage
-          setInputAmount={setInputAmount}
+          incomeForm={incomeForm}
           goToNeedsWantsForm={() => setScreen(1)}
         />
       ) : screen === 1 ? (
-        <NWIForm
-          needsWantsAmount={needsWantsAmount}
-          goToHome={() => setScreen(0)}
-        />
+        <NWIForm splitAmounts={splitAmounts} goToHome={() => setScreen(0)} />
       ) : (
-       <>Error Page</>
+        <>Error Page</>
       )}
     </div>
   );

@@ -15,36 +15,6 @@ const TransactionsList = () => {
           <span>324</span>
           <span>x</span>
         </div>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between py-2 w-full">
-          <span>Item</span>
-          <span>324</span>
-          <span>x</span>
-        </div>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between py-2 w-full">
-          <span>Item</span>
-          <span>324</span>
-          <span>x</span>
-        </div>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between py-2 w-full">
-          <span>Item</span>
-          <span>324</span>
-          <span>x</span>
-        </div>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between py-2 w-full">
-          <span>Item</span>
-          <span>324</span>
-          <span>x</span>
-        </div>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between py-2 w-full">
-          <span>Item</span>
-          <span>324</span>
-          <span>x</span>
-        </div>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between py-2 w-full">
-          <span>Item</span>
-          <span>324</span>
-          <span>x</span>
-        </div>
       </div>
     </div>
   );

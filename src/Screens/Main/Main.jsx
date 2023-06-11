@@ -16,7 +16,7 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="max-w-sm mt-4">
+    <div className="max-w-sm ">
       {screen === 0 ? (
         <FirstPage
           setInputAmount={setInputAmount}

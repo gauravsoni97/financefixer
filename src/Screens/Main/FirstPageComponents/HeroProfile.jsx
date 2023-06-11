@@ -3,9 +3,13 @@ import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import myImg from "../../../assets/Images/gauravsoni.png";
 
+import { provider } from "../../../Utils/firebase";
+
 const HeroProfile = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [toggleIcon, setToggleIcon] = useState(false);
+
+  console.log(provider , " auth in hero ");
 
   const handleLogoutButton = () => {
     localStorage.clear();
@@ -18,7 +22,7 @@ const HeroProfile = () => {
 
 
   return (
-    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center space-between p-6 mb-3">
+    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center space-between p-4 mb-2">
       <div className="flex  items-center w-[80%]">
         <img
           className="w-12 h-12 mr-3 rounded-full shadow-lg"
@@ -26,7 +30,7 @@ const HeroProfile = () => {
           alt="Profile Image"
         />
         <h1 className="mb-1 text-lg font-medium text-gray-900 dark:text-white">
-          Hi, Gaurav Soni
+          Hi,
         </h1>
       </div>
       <div className=" w-[20%] relative flex justify-end ">

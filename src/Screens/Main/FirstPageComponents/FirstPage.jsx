@@ -5,11 +5,8 @@ import TotalBalance from "./TotalBalance";
 import RedirectToPage from "./RedirectToPage";
 
 const FirstPage = ({ setInputAmount, goToNeedsWantsForm }) => {
- 
-
   return (
     <div>
-    
       <HeroProfile />
       <HeroForm setInputAmount={setInputAmount} />
       <TotalBalance />

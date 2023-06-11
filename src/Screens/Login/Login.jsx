@@ -12,11 +12,11 @@ import Main from "../Main/Main";
 const Login = () => {
   const [value, setValue] = useState("");
 
+
   const handleGoogleClick = () => {
     signInWithPopup(auth, provider).then((data) => {
       setValue(data.user.email);
-      console.log(data.user.displayName);
-
+      
       localStorage.setItem("email", data.user.email);
     });
   };
@@ -26,9 +26,9 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="h-screen max-w-sm w-screen flex items-start justify-center p-3 ">
+    <div className="h-screen max-w-sm w-screen flex items-start justify-center p-2 ">
       {value ? (
-      <Main/>
+        <Main />
       ) : (
         <section className=" h-screen max-w-sm w-screen flex items-center justify-center  bg-gray-50 dark:bg-gray-900">
           <div className="flex w-screen flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

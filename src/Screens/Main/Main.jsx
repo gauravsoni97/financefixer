@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FirstPage from "./FirstPageComponents/FirstPage";
-import NeedsWantsForm from "./NeedsWants/NeedsWantsForm";
-import NeedsWantsTransactions from "./NeedsWants/NeedsWantsTransactions";
+import NWIForm from "./NWIForm/NWIForm";
 
 const Main = () => {
   const [screen, setScreen] = useState(0);
@@ -25,12 +24,12 @@ const Main = () => {
           goToNeedsWantsForm={() => setScreen(1)}
         />
       ) : screen === 1 ? (
-        <NeedsWantsForm
+        <NWIForm
           needsWantsAmount={needsWantsAmount}
           goToHome={() => setScreen(0)}
         />
       ) : (
-        <NeedsWantsTransactions />
+       <>Error Page</>
       )}
     </div>
   );

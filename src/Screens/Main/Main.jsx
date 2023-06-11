@@ -119,7 +119,7 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="max-w-sm ">
+    <div className="max-w-sm  w-96">
       {screen === 0 ? (
         <FirstPage incomeForm={incomeForm} goToneedsForm={() => setScreen(1)} />
       ) : screen === 1 ? (
@@ -136,7 +136,7 @@ const Main = () => {
           goToTransactions={() => setScreen(2)}
         />
       ) : screen === 2 ? (
-        <AllTransactions />
+        <AllTransactions goToForm={()=>setScreen(1)} />
       ) : (
         <></>
       )}

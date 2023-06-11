@@ -18,11 +18,12 @@ const NWIForm = ({
   transactionScreen,
   setTransactionScreen,
   goToTransactions,
+  goToForm
 }) => {
   return (
     <>
       {transactionScreen ? (
-        <AllTransactions />
+        <AllTransactions goToForm={goToForm} />
       ) : (
         <div className="w-96 max-w-sm p-3">
           <ProfileHeader goToHome={goToHome} />

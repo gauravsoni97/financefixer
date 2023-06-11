@@ -7,7 +7,7 @@ const TotalBalance = () => {
         <span className="text-base font-medium text-blue-700 dark:text-white">
           Available Balance
         </span>
-        <span className="text-md font-medium text-blue-700  flex items-center dark:text-white">
+        <span className="text-base font-medium text-blue-700  flex items-center dark:text-green-400">
           ₹ 2134
         </span>
       </div>

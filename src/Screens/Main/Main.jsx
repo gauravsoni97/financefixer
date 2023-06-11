@@ -5,11 +5,13 @@ import NeedsWantsTransactions from "./NeedsWants/NeedsWantsTransactions";
 
 const Main = () => {
   const [screen, setScreen] = useState(0);
-  const [inputAmount, setInputAmount] = useState("");
+  const [inputAmount, setInputAmount] = useState(null);
 
 
   const needsWantsAmount = Math.round(inputAmount * 0.7);
 
+
+  console.log(needsWantsAmount);
 
   useEffect(() => {
     setScreen(0);

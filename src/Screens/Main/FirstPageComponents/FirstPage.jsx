@@ -10,7 +10,7 @@ const FirstPage = ({ setInputAmount, goToNeedsWantsForm }) => {
       <HeroProfile />
       <HeroForm setInputAmount={setInputAmount} />
       <TotalBalance />
-      <RedirectToPage />
+      <RedirectToPage goToNeedsWantsForm={goToNeedsWantsForm} />
     </div>
   );
 };

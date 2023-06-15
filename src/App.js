@@ -25,7 +25,7 @@ const App = () => {
     const userEmail = localStorage.getItem("userEmail");
     setValue(userEmail);
     if (userEmail) {
-      navigate("/main");
+      navigate("/");
     }
   }, []);
 

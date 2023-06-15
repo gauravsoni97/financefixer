@@ -9,7 +9,7 @@ const Routes = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="/main" element={<Main />} />
+      <Route path="/" element={<Main />} />
       <Route path="/nwiform" element={<NWIForm />} />
       <Route path="/transactions" element={<AllTransactions />} />
     </Routes>

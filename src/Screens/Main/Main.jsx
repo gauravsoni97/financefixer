@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import NeedsWants from "./NeedsWants/NeedsWants";
 import MainPage from "./MainPage/MainPage";
+import Investments from "./Investments/Investments";
 
 const Main = () => {
  
@@ -116,7 +117,7 @@ const Main = () => {
   return (
     <div className="max-w-sm mt-3">
     
-        <MainPage incomeForm={needsForm} />
+        <Investments needsForm={needsForm} />
     
     </div>
   );

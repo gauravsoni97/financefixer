@@ -7,7 +7,6 @@ import AllTransactions from "../AllTransactions/AllTransactions";
 
 const NWIForm = ({
   needsForm,
-  goToHome,
   splitAmounts,
   needsTotalListSum,
   selectedMonth,
@@ -17,19 +16,17 @@ const NWIForm = ({
   deleteNeedsFromList,
   transactionScreen,
   setTransactionScreen,
-  goToTransactions,
-  goToForm
 }) => {
   return (
     <>
       {transactionScreen ? (
-        <AllTransactions goToForm={goToForm} />
+        <AllTransactions />
       ) : (
         <div className="w-96 max-w-sm p-3">
-          <ProfileHeader goToHome={goToHome} />
+          <ProfileHeader />
           <NWICommonForm needsForm={needsForm} />
           <NWIBalanceStats splitAmounts={splitAmounts} />
-          <GoToTransactions goToTransactions={goToTransactions} />
+          <GoToTransactions  />
         </div>
       )}
     </>

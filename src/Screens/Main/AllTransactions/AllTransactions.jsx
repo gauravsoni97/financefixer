@@ -2,10 +2,10 @@ import React from "react";
 import TransactionsHeader from "./TransactionsComponents/TransactionsHeader";
 import TransactionsList from "./TransactionsComponents/TransactionsList";
 
-const AllTransactions = ({goToForm}) => {
+const AllTransactions = ({}) => {
   return (
     <div>
-      <TransactionsHeader goToForm={goToForm} />
+      <TransactionsHeader />
       <TransactionsList/>
     </div>
   );

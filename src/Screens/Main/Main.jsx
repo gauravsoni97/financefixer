@@ -6,9 +6,7 @@ import * as Yup from "yup";
 import AllTransactions from "./AllTransactions/AllTransactions";
 
 const Main = () => {
-  const [screen, setScreen] = useState(0);
-  const [transactionScreen, setTransactionScreen] = useState(false);
-
+ 
   const [splitAmounts, setSplitAmounts] = useState(
     JSON.parse(localStorage.getItem("splitAmounts")) || {
       nwFromHome: 0,
@@ -102,9 +100,7 @@ const Main = () => {
     setArrayOfNeeds(updatedList);
   };
 
-  useEffect(() => {
-    setScreen(0);
-  }, []);
+
 
   useEffect(() => {
     localStorage.setItem("needsArray", JSON.stringify(arrayOfNeeds));
@@ -120,26 +116,22 @@ const Main = () => {
 
   return (
     <div className="max-w-sm  w-96">
-      {screen === 0 ? (
-        <FirstPage incomeForm={incomeForm} goToneedsForm={() => setScreen(1)} />
-      ) : screen === 1 ? (
-        <NWIForm
+    
+        <FirstPage incomeForm={incomeForm} />
+   
+        {/* <NWIForm
           needsForm={needsForm}
           splitAmounts={splitAmounts}
-          goToHome={() => setScreen(0)}
           needsTotalListSum={needsTotalListSum}
           selectedMonth={selectedMonth}
           handleMonthFilter={handleMonthFilter}
           arrayOfNeeds={arrayOfNeeds}
           filteredNeedsArray={filteredNeedsArray}
           deleteNeedsFromList={deleteNeedsFromList}
-          goToTransactions={() => setScreen(2)}
-        />
-      ) : screen === 2 ? (
-        <AllTransactions goToForm={()=>setScreen(1)} />
-      ) : (
-        <></>
-      )}
+        /> */}
+   
+        {/* <AllTransactions goToForm={()=>setScreen(1)} /> */}
+    
     </div>
   );
 };

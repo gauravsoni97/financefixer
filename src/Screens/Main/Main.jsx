@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import FirstPage from "./FirstPageComponents/FirstPage";
-import NWIForm from "./NWIForm/NWIForm";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import AllTransactions from "./AllTransactions/AllTransactions";
+import NeedsWants from "./NeedsWants/NeedsWants";
+import MainPage from "./MainPage/MainPage";
 
 const Main = () => {
  
@@ -115,22 +114,9 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="max-w-sm  w-96">
+    <div className="max-w-sm mt-3">
     
-        <FirstPage incomeForm={incomeForm} />
-   
-        {/* <NWIForm
-          needsForm={needsForm}
-          splitAmounts={splitAmounts}
-          needsTotalListSum={needsTotalListSum}
-          selectedMonth={selectedMonth}
-          handleMonthFilter={handleMonthFilter}
-          arrayOfNeeds={arrayOfNeeds}
-          filteredNeedsArray={filteredNeedsArray}
-          deleteNeedsFromList={deleteNeedsFromList}
-        /> */}
-   
-        {/* <AllTransactions goToForm={()=>setScreen(1)} /> */}
+        <MainPage incomeForm={needsForm} />
     
     </div>
   );

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const NWIBalanceStats = () => {
+const TotalBalance = () => {
   return (
     <div className="w-full max-w-sm p-8 px-6 bg-white border border-gray-200 rounded-lg shadow shadow dark:bg-gray-800 dark:border-gray-700 mb-3">
     <div className="flex justify-between mb-3">
@@ -20,7 +20,7 @@ const NWIBalanceStats = () => {
       </span>
     </div>
   </div>
-  )
-}
+  );
+};
 
-export default NWIBalanceStats
+export default TotalBalance;

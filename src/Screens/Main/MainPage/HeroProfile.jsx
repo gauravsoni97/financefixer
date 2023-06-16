@@ -7,9 +7,9 @@ const HeroProfile = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [toggleIcon, setToggleIcon] = useState(false);
 
-
   const handleResetApp = () => {
-    
+    localStorage.clear();
+    window.location.reload();
   };
   const handleLogoutButton = () => {
     localStorage.removeItem("userEmail");
@@ -19,7 +19,6 @@ const HeroProfile = () => {
     setDropdownOpen(!dropdownOpen);
     setToggleIcon(!toggleIcon);
   };
-
 
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center space-between p-4 mb-3">
@@ -48,7 +47,7 @@ const HeroProfile = () => {
             id="dropdown"
             className="z-10 absolute top-8 text-base list-none bg-white  rounded-md shadow w-24 dark:bg-gray-700"
           >
-            <ul  aria-labelledby="dropdownButton">
+            <ul aria-labelledby="dropdownButton">
               <li>
                 <span
                   onClick={handleLogoutButton}

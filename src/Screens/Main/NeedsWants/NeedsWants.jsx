@@ -3,6 +3,7 @@ import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import NeedsWantsTransactions from "./NeedsWantsTransactions";
 
 const NeedsWants = ({
+  setTotalBalance,
   needsForm,
   goToHome,
   initialAmount,

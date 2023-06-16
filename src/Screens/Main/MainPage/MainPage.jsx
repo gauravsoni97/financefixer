@@ -8,16 +8,20 @@ const MainPage = ({
   incomeForm,
   setNeedsWantsScreen,
   setInvestmentsScreen,
+  totalAvailableBalance,
+totalUsedBalance,
 }) => {
   return (
     <div>
       <HeroProfile />
       <HeroForm incomeForm={incomeForm} />
-      <TotalBalance />
-      <RedirectToPage 
-      setNeedsWantsScreen={setNeedsWantsScreen}
-      setInvestmentsScreen={setInvestmentsScreen}
-      
+      <TotalBalance
+       totalAvailableBalance={totalAvailableBalance}
+       totalUsedBalance={totalUsedBalance}
+      />
+      <RedirectToPage
+        setNeedsWantsScreen={setNeedsWantsScreen}
+        setInvestmentsScreen={setInvestmentsScreen}
       />
     </div>
   );

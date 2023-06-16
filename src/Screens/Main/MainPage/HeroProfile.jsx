@@ -3,7 +3,7 @@ import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import myImg from "../../../assets/Images/gauravsoni.png";
 
-const HeroProfile = () => {
+const HeroProfile = ({userData}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [toggleIcon, setToggleIcon] = useState(false);
 
@@ -29,7 +29,7 @@ const HeroProfile = () => {
           alt="Profile Image"
         />
         <h1 className="mb-1 text-lg font-medium text-gray-900 dark:text-white">
-          Hi, Gaurav
+          Hi, {userData?.displayName}
         </h1>
       </div>
       <div className=" w-[20%] relative flex justify-end ">

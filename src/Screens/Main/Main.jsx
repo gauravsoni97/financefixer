@@ -5,7 +5,7 @@ import MainPage from "./MainPage/MainPage";
 import NeedsWants from "./NeedsWants/NeedsWants";
 import Investments from "./Investments/Investments";
 
-const Main = () => {
+const Main = ({userData}) => {
 
   const [activeScreen, setActiveScreen] = useState(null);
 
@@ -201,6 +201,7 @@ const Main = () => {
     <div className="max-w-sm p-3">
       {activeScreen === 0 ? (
         <MainPage
+        userData={userData}
         totalAvailableBalance={totalAvailableBalance}
         totalUsedBalance={totalUsedBalance}
           setNeedsWantsScreen={() => setActiveScreen(1)}
@@ -232,7 +233,7 @@ const Main = () => {
           handleMonthFilter={handleMonthFilter}
         />
       ) : (
-        <>Error page</>
+        <>Loading ...</>
       )}
     </div>
   );

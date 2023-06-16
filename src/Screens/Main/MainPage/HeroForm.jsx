@@ -15,7 +15,7 @@ const HeroForm = ({ incomeForm }) => {
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
           placeholder="100000"
           min={0}
-          max={999999999999}
+          max={10000000000}
           value={incomeForm.values.income}
           onChange={incomeForm.handleChange}
         />

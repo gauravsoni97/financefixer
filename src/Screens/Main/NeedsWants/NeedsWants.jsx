@@ -2,13 +2,28 @@ import React, { useEffect, useState } from "react";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import NeedsWantsTransactions from "./NeedsWantsTransactions";
 
-const NeedsWants = ({ needsForm, goToHome }) => {
+const NeedsWants = ({
+  needsForm,
+  goToHome,
+  initialAmount,
+  needsWantsTotalListSum,
+  arrayOfNeeds,
+  filteredNeedsArray,
+  deleteNeedsFromList,
+  selectedMonth,
+  handleMonthFilter,
+}) => {
   const [showTransactions, setShowTransactions] = useState(false);
   return (
     <>
       {showTransactions ? (
         <NeedsWantsTransactions
           backToNeedsWantsForm={() => setShowTransactions(false)}
+          arrayOfNeeds={arrayOfNeeds}
+          filteredNeedsArray={filteredNeedsArray}
+          deleteNeedsFromList={deleteNeedsFromList}
+          selectedMonth={selectedMonth}
+          handleMonthFilter={handleMonthFilter}
         />
       ) : (
         <div>
@@ -117,7 +132,7 @@ const NeedsWants = ({ needsForm, goToHome }) => {
                 Available Balance
               </span>
               <span className="text-base font-medium text-blue-700  flex items-center dark:text-green-400">
-                ₹ 2134
+                ₹ {initialAmount - needsWantsTotalListSum}
               </span>
             </div>
             <div className="flex justify-between">
@@ -125,7 +140,7 @@ const NeedsWants = ({ needsForm, goToHome }) => {
                 Used Balance
               </span>
               <span className="text-base font-medium text-blue-700  flex items-center dark:text-red-400">
-                ₹ 2134
+                ₹ {needsWantsTotalListSum}
               </span>
             </div>
           </div>

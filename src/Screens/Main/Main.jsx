@@ -22,6 +22,7 @@ const Main = () => {
   );
 
   console.log(arrayOfNeeds);
+
   const [filteredNeedsArray, setFilteredNeedsArray] = useState([]);
 
   const handleMonthFilter = (e) => {
@@ -50,6 +51,7 @@ const Main = () => {
         nwFromHome: values.income * 0.7,
         invFromHome: values.income * 0.3,
       });
+      console.log(values);
       incomeForm.resetForm();
     },
   });
@@ -90,7 +92,7 @@ const Main = () => {
     },
   });
 
-  let needsTotalListSum = arrayOfNeeds
+  let needsWantsTotalListSum = arrayOfNeeds
     .map((obj) => obj.price)
     .reduce((acc, cur) => acc + cur, 0);
 
@@ -100,6 +102,11 @@ const Main = () => {
     });
     setArrayOfNeeds(updatedList);
   };
+
+  // ------------------------------------- use Effects ----------------------------
+  useEffect(() => {
+    localStorage.setItem("splitAmounts", JSON.stringify(splitAmounts));
+  }, [splitAmounts]);
 
   useEffect(() => {
     localStorage.setItem("needsArray", JSON.stringify(arrayOfNeeds));
@@ -114,6 +121,7 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
+    console.log(incomeForm.values);
     setActiveScreen(0);
   }, []);
 
@@ -121,12 +129,22 @@ const Main = () => {
     <div className="max-w-sm p-3">
       {activeScreen === 0 ? (
         <MainPage
-          incomeForm={incomeForm}
           setNeedsWantsScreen={() => setActiveScreen(1)}
           setInvestmentsScreen={() => setActiveScreen(2)}
+          incomeForm={incomeForm}
         />
       ) : activeScreen === 1 ? (
-        <NeedsWants needsForm={needsForm} goToHome={() => setActiveScreen(0)} />
+        <NeedsWants
+          goToHome={() => setActiveScreen(0)}
+          needsForm={needsForm}
+          initialAmount={splitAmounts.nwFromHome}
+          needsWantsTotalListSum={needsWantsTotalListSum}
+          arrayOfNeeds={arrayOfNeeds}
+          filteredNeedsArray={filteredNeedsArray}
+          deleteNeedsFromList={deleteNeedsFromList}
+          selectedMonth={selectedMonth}
+          handleMonthFilter={handleMonthFilter}
+        />
       ) : activeScreen === 2 ? (
         <Investments
           needsForm={needsForm}

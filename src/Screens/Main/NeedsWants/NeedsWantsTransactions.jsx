@@ -1,7 +1,16 @@
 import React from "react";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import { FormControl, MenuItem, Select } from "@mui/material";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-const NeedsWantsTransactions = ({ backToNeedsWantsForm }) => {
+const NeedsWantsTransactions = ({
+  arrayOfNeeds,
+  backToNeedsWantsForm,
+  filteredNeedsArray,
+  deleteNeedsFromList,
+  selectedMonth,
+  handleMonthFilter,
+}) => {
   return (
     <>
       <div className="w-full max-w-sm mb-3 flex items-center justify-between">
@@ -20,14 +29,82 @@ const NeedsWantsTransactions = ({ backToNeedsWantsForm }) => {
       <div>
         <div className="monthFilter flex items-center justify-between p-2 w-full">
           <h3>Select Month</h3>
-          <div>All</div>
+          <FormControl
+            style={{ minWidth: "50px", fontSize: ".8rem" }}
+            size="small"
+          >
+            <Select
+              style={{ fontSize: ".8rem", background:'white' }}
+              size="small"
+              value={selectedMonth}
+              onChange={handleMonthFilter}
+            >
+              <MenuItem value={0}>All</MenuItem>
+              <MenuItem value={1}>Jan</MenuItem>
+              <MenuItem value={2}>Feb</MenuItem>
+              <MenuItem value={3}>Mar</MenuItem>
+              <MenuItem value={4}>Apr</MenuItem>
+              <MenuItem value={5}>May</MenuItem>
+              <MenuItem value={6}>Jun</MenuItem>
+              <MenuItem value={7}>Jul</MenuItem>
+              <MenuItem value={8}>Aug</MenuItem>
+              <MenuItem value={9}>Sep</MenuItem>
+              <MenuItem value={10}>Oct</MenuItem>
+              <MenuItem value={11}>Nov</MenuItem>
+              <MenuItem value={12}>Dec</MenuItem>
+            </Select>
+          </FormControl>
         </div>
 
         <div className=" max-h-[80vh] overflow-auto flex items-center flex-col">
-          <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between py-2 w-full">
-            <span>Item</span>
-            <span>324</span>
-            <span>x</span>
+          <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between flex-col py-2 w-full">
+            {(arrayOfNeeds.length === 0 ||
+              (filteredNeedsArray.length === 0 && selectedMonth !== 0)) && (
+              <p className=" text-center text-sm pt-12 text-gray-600 w-full">
+                No data found
+              </p>
+            )}
+
+            {/* =========  Show all Data ====================== */}
+
+            {selectedMonth === 0 &&
+              arrayOfNeeds.map((e, ind) => {
+                return (
+                  <div
+                    className="flex align-center justify-between mb-3  w-full"
+                    key={ind}
+                  >
+                    <span>{e.name}</span>
+                    <span>{e.price}</span>
+                    <span>
+                      <DeleteForeverIcon
+                        onClick={() => deleteNeedsFromList(ind)}
+                      />
+                    </span>
+                  </div>
+                );
+              })}
+
+            {/* =========================== Filtered Array on select Month ========================== */}
+
+            {selectedMonth > 0 &&
+              filteredNeedsArray.length > 0 &&
+              filteredNeedsArray.map((e, ind) => {
+                return (
+                  <div
+                    className="flex align-center justify-between w-full"
+                    key={ind}
+                  >
+                    <span>{e.name}</span>
+                    <span>{e.price}</span>
+                    <span>
+                      <DeleteForeverIcon
+                        onClick={() => deleteNeedsFromList(ind)}
+                      />
+                    </span>
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>

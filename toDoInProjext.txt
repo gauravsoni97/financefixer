@@ -1,0 +1,5 @@
+- Firebase - Authentication
+- Firebase - Storage
+- Animated Icons 
+- Animations - Text - Balance Left etc
+- Design inspiration from Dribble

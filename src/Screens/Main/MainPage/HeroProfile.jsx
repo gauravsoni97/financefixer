@@ -29,7 +29,7 @@ const HeroProfile = ({userData}) => {
           alt="Profile Image"
         />
         <h1 className="mb-1 text-lg font-medium text-gray-900 dark:text-white">
-          Hi, {userData?.displayName}
+          Hi, Gaurav
         </h1>
       </div>
       <div className=" w-[20%] relative flex justify-end ">

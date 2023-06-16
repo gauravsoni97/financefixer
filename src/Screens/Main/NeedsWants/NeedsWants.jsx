@@ -1,11 +1,11 @@
 import React from "react";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 
-const NeedsWants = ({ needsForm }) => {
+const NeedsWants = ({ needsForm,  goToHome}) => {
   return (
     <>
       <div className="w-full max-w-sm mb-3 flex items-center justify-between">
-        <button
+        <button onClick={()=>goToHome()}
           type="button"
           className="text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center justify-center p-4 cursor-pointer "
         >

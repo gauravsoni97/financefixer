@@ -10,8 +10,6 @@ const Routes = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Main />} />
-      <Route path="/needswants" element={<NeedsWants />} />
-      <Route path="/investments" element={<Investments />} />
     </Routes>
   );
 };

@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import MainPage from "./MainPage/MainPage";
+import NeedsWants from "./NeedsWants/NeedsWants";
+import Investments from "./Investments/Investments";
 
 const Main = () => {
- 
+  const [activeScreen, setActiveScreen] = useState(null);
+
   const [splitAmounts, setSplitAmounts] = useState(
     JSON.parse(localStorage.getItem("splitAmounts")) || {
       nwFromHome: 0,
@@ -98,8 +101,6 @@ const Main = () => {
     setArrayOfNeeds(updatedList);
   };
 
-
-
   useEffect(() => {
     localStorage.setItem("needsArray", JSON.stringify(arrayOfNeeds));
   }, [arrayOfNeeds]);
@@ -112,11 +113,28 @@ const Main = () => {
     setFilteredNeedsArray(splitArrayOfNeeds);
   }, []);
 
+  useEffect(() => {
+    setActiveScreen(0);
+  }, []);
+
   return (
     <div className="max-w-sm p-3">
-
-        <MainPage incomeForm={incomeForm}/>
-    
+      {activeScreen === 0 ? (
+        <MainPage
+          incomeForm={incomeForm}
+          setNeedsWantsScreen={() => setActiveScreen(1)}
+          setInvestmentsScreen={() => setActiveScreen(2)}
+        />
+      ) : activeScreen === 1 ? (
+        <NeedsWants needsForm={needsForm} goToHome={() => setActiveScreen(0)} />
+      ) : activeScreen === 2 ? (
+        <Investments
+          needsForm={needsForm}
+          goToHome={() => setActiveScreen(0)}
+        />
+      ) : (
+        <>Error page</>
+      )}
     </div>
   );
 };

@@ -10,12 +10,12 @@ import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const App = () => {
-  const [value, setValue] = useState("");
+  const [user, setUser] = useState("");
   const navigate = useNavigate();
 
   const handleGoogleClick = () => {
     signInWithPopup(auth, provider).then((data) => {
-      setValue(data.user.email);
+      setUser(data.user.email);
       localStorage.setItem("userEmail", data.user.email);
       navigate("/");
     });
@@ -23,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     const userEmail = localStorage.getItem("userEmail");
-    setValue(userEmail);
+    setUser(userEmail);
     if (userEmail) {
       navigate("/");
     }
@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <div className="max-w-sm max-h-screen mx-auto  ">
-      {value ? <Main /> : <Login handleGoogleClick={handleGoogleClick} />}
+      {user ? <Main /> : <Login handleGoogleClick={handleGoogleClick} />}
     </div>
   );
 };

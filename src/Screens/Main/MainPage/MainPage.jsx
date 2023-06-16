@@ -4,13 +4,21 @@ import HeroForm from "./HeroForm";
 import TotalBalance from "./TotalBalance";
 import RedirectToPage from "./RedirectToPage";
 
-const MainPage = ({ incomeForm,  }) => {
+const MainPage = ({
+  incomeForm,
+  setNeedsWantsScreen,
+  setInvestmentsScreen,
+}) => {
   return (
     <div>
       <HeroProfile />
       <HeroForm incomeForm={incomeForm} />
       <TotalBalance />
-      <RedirectToPage  />
+      <RedirectToPage 
+      setNeedsWantsScreen={setNeedsWantsScreen}
+      setInvestmentsScreen={setInvestmentsScreen}
+      
+      />
     </div>
   );
 };

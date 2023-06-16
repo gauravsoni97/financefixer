@@ -2,13 +2,28 @@ import React, { useState } from "react";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import InvestmentTransactions from "./InvestmentTransactions";
 
-const Investments = ({ needsForm, goToHome }) => {
+const Investments = ({
+  investForm,
+  goToHome,
+  arrayOfInvest,
+  initialAmount,
+  investTotalListSum,
+  filteredInvestArray,
+  deleteInvestFromList,
+  selectedMonth,
+  handleMonthFilter,
+}) => {
   const [showTransactions, setShowTransactions] = useState(false);
   return (
     <>
       {showTransactions ? (
         <InvestmentTransactions
           backToInvestmentForm={() => setShowTransactions(false)}
+          arrayOfInvest={arrayOfInvest}
+          filteredInvestArray={filteredInvestArray}
+          deleteInvestFromList={deleteInvestFromList}
+          selectedMonth={selectedMonth}
+          handleMonthFilter={handleMonthFilter}
         />
       ) : (
         <div>
@@ -28,7 +43,7 @@ const Investments = ({ needsForm, goToHome }) => {
           {/* --------- */}
 
           <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-3 md:p-8 shadow dark:bg-gray-800 dark:border-gray-700 mb-3">
-            <form className="space-y-3" onSubmit={needsForm.handleSubmit}>
+            <form className="space-y-3" onSubmit={investForm.handleSubmit}>
               <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
                 Enter Date
               </label>
@@ -38,18 +53,18 @@ const Investments = ({ needsForm, goToHome }) => {
                 id="itemDate"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
                 placeholder="MM"
-                value={needsForm.values.itemDate}
-                onChange={needsForm.handleChange}
+                value={investForm.values.itemDate}
+                onChange={investForm.handleChange}
               />
               <p
                 className={
-                  needsForm.touched.itemDate && needsForm.errors.itemDate
+                  investForm.touched.itemDate && investForm.errors.itemDate
                     ? "text-red-600  text-xs  font-medium"
                     : ""
                 }
               >
-                {needsForm.touched.itemDate && needsForm.errors.itemDate
-                  ? needsForm.errors.itemDate
+                {investForm.touched.itemDate && investForm.errors.itemDate
+                  ? investForm.errors.itemDate
                   : ""}
               </p>
 
@@ -61,18 +76,18 @@ const Investments = ({ needsForm, goToHome }) => {
                 type="text"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
                 placeholder="Sugar"
-                value={needsForm.values.itemName}
-                onChange={needsForm.handleChange}
+                value={investForm.values.itemName}
+                onChange={investForm.handleChange}
               />
               <p
                 className={
-                  needsForm.touched.itemName && needsForm.errors.itemName
+                  investForm.touched.itemName && investForm.errors.itemName
                     ? "text-red-600  text-xs  font-medium"
                     : ""
                 }
               >
-                {needsForm.touched.itemName && needsForm.errors.itemName
-                  ? needsForm.errors.itemName
+                {investForm.touched.itemName && investForm.errors.itemName
+                  ? investForm.errors.itemName
                   : ""}
               </p>
 
@@ -85,18 +100,18 @@ const Investments = ({ needsForm, goToHome }) => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 shadow dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white"
                 min="0"
                 placeholder="10000"
-                value={needsForm.values.itemPrice}
-                onChange={needsForm.handleChange}
+                value={investForm.values.itemPrice}
+                onChange={investForm.handleChange}
               />
               <p
                 className={
-                  needsForm.touched.itemPrice && needsForm.errors.itemPrice
+                  investForm.touched.itemPrice && investForm.errors.itemPrice
                     ? "text-red-600  text-xs  font-medium"
                     : ""
                 }
               >
-                {needsForm.touched.itemPrice && needsForm.errors.itemPrice
-                  ? needsForm.errors.itemPrice
+                {investForm.touched.itemPrice && investForm.errors.itemPrice
+                  ? investForm.errors.itemPrice
                   : ""}
               </p>
 
@@ -117,7 +132,7 @@ const Investments = ({ needsForm, goToHome }) => {
                 Available Balance
               </span>
               <span className="text-base font-medium text-blue-700  flex items-center dark:text-green-400">
-                ₹ 2134
+                ₹ {initialAmount - investTotalListSum}
               </span>
             </div>
             <div className="flex justify-between">
@@ -125,7 +140,7 @@ const Investments = ({ needsForm, goToHome }) => {
                 Used Balance
               </span>
               <span className="text-base font-medium text-blue-700  flex items-center dark:text-red-400">
-                ₹ 2134
+                ₹ {investTotalListSum}
               </span>
             </div>
           </div>

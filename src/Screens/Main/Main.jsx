@@ -115,9 +115,9 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="max-w-sm mt-3">
+    <div className="max-w-sm p-3">
     
-        <Investments needsForm={needsForm} />
+        <NeedsWants needsForm={needsForm} />
     
     </div>
   );

@@ -13,7 +13,7 @@ const Investments = ({needsForm}) => {
           <ArrowBackIosRoundedIcon style={{ width: "16px" }} />
         </button>
         <div className="text-center  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center justify-center ml-3 p-4  w-full">
-          Needs + Wants
+          Investments
         </div>
       </div>
 
@@ -103,7 +103,7 @@ const Investments = ({needsForm}) => {
 
       {/* ------------------ */}
 
-      <div className="w-full max-w-sm p-8 px-6 bg-white border border-gray-200 rounded-lg shadow shadow dark:bg-gray-800 dark:border-gray-700 mb-3">
+      <div className="w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow shadow dark:bg-gray-800 dark:border-gray-700 mb-3">
         <div className="flex justify-between mb-3">
           <span className="text-base font-medium text-blue-700 dark:text-white">
             Available Balance

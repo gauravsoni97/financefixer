@@ -27,7 +27,7 @@ const Investments = ({
         />
       ) : (
         <div>
-          <div className="w-full max-w-sm mb-3 flex items-center justify-between">
+         <div className="w-full max-w-sm mb-3 flex items-center justify-between">
             <button
               onClick={() => goToHome()}
               type="button"

@@ -22,7 +22,7 @@ const HeroProfile = () => {
 
 
   return (
-    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center space-between p-4 mb-2">
+    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center space-between p-4 mb-3">
       <div className="flex  items-center w-[80%]">
         <img
           className="w-12 h-12 mr-3 rounded-full shadow-lg"

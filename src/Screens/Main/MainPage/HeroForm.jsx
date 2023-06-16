@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const HeroForm = ({ incomeForm }) => {
   return (
-    <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-3 md:p-8 shadow dark:bg-gray-800 dark:border-gray-700 mb-2">
+    <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-3 md:p-8 shadow dark:bg-gray-800 dark:border-gray-700 mb-3">
       <form className="space-y-4" onSubmit={incomeForm.handleSubmit}>
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Enter Your Monthly Income

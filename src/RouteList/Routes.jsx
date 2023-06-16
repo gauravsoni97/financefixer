@@ -2,16 +2,16 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "../Screens/Login/Login";
 import Main from "../Screens/Main/Main";
-import NWIForm from "../Screens/Main/NWIForm/NWIForm";
-import AllTransactions from "../Screens/Main/AllTransactions/AllTransactions";
+import NeedsWants from "../Screens/Main/NeedsWants/NeedsWants";
+import Investments from "../Screens/Main/Investments/Investments";
 
 const Routes = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Main />} />
-      <Route path="/nwiform" element={<NWIForm />} />
-      <Route path="/transactions" element={<AllTransactions />} />
+      <Route path="/needswants" element={<NeedsWants />} />
+      <Route path="/investments" element={<Investments />} />
     </Routes>
   );
 };

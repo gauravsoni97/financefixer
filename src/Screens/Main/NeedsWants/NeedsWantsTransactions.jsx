@@ -1,11 +1,12 @@
 import React from "react";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 
-const NeedsWantsTransactions = () => {
+const NeedsWantsTransactions = ({ backToNeedsWantsForm }) => {
   return (
     <>
       <div className="w-full max-w-sm mb-3 flex items-center justify-between">
         <button
+          onClick={() => backToNeedsWantsForm()}
           type="button"
           className="text-center w-[15%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center justify-center p-4 cursor-pointer "
         >

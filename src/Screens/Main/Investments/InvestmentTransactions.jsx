@@ -53,11 +53,11 @@ const InvestmentTransactions = ({ backToInvestmentForm,  arrayOfInvest,
           </FormControl>
         </div>
 
-        <div className=" max-h-[80vh] overflow-auto flex items-center flex-col">
-          <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-4 my-1 flex items-center justify-between flex-col py-2 w-full">
+        <div className="max-h-[75vh] overflow-auto flex items-center flex-col">
+          <div className="w-full  flex items-center justify-between flex-col py-2 w-full">
             {(arrayOfInvest.length === 0 ||
               (filteredInvestArray.length === 0 && selectedMonth !== 0)) && (
-              <p className=" text-center text-sm pt-12 text-gray-600 w-full">
+              <p className="text-center text-sm h-24 text-gray-600 w-full flex items-center justify-center">
                 No data found
               </p>
             )}
@@ -68,7 +68,7 @@ const InvestmentTransactions = ({ backToInvestmentForm,  arrayOfInvest,
               arrayOfInvest.map((e, ind) => {
                 return (
                   <div
-                    className="flex align-center justify-between mb-3  w-full"
+                    className="flex align-center justify-between w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-3 px-4 my-1"
                     key={ind}
                   >
                     <span>{e.name}</span>
@@ -89,7 +89,7 @@ const InvestmentTransactions = ({ backToInvestmentForm,  arrayOfInvest,
               filteredInvestArray.map((e, ind) => {
                 return (
                   <div
-                    className="flex align-center justify-between w-full"
+                    className="flex align-center justify-between w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  p-3 px-4 my-1"
                     key={ind}
                   >
                     <span>{e.name}</span>

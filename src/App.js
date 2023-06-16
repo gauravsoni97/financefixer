@@ -17,6 +17,7 @@ const App = () => {
     signInWithPopup(auth, provider).then((data) => {
       setUser(data.user.email);
       localStorage.setItem("userEmail", data.user.email);
+      window.location.reload();
       navigate("/");
     });
   };

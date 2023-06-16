@@ -21,23 +21,24 @@ const NeedsWantsTransactions = ({
         >
           <ArrowBackIosRoundedIcon style={{ width: "16px" }} />
         </button>
-        <div className="text-center w-[85%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center justify-center ml-3 p-4 w-72 ">
-          All Transactions
+        <div className="text-center w-[85%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center justify-center ml-3 p-4 ">
+          Needs & Wants Transactions
         </div>
       </div>
 
       <div>
-        <div className="monthFilter flex items-center justify-between p-2 w-full">
+        <div className="monthFilter flex items-center justify-between p-2 px-0 w-full">
           <h3>Select Month</h3>
           <FormControl
             style={{ minWidth: "50px", fontSize: ".8rem" }}
             size="small"
           >
             <Select
-              style={{ fontSize: ".8rem", background: "white" }}
+              style={{ fontSize: ".8rem", color: "white", padding: "0.2rem" }}
               size="small"
               value={selectedMonth}
               onChange={handleMonthFilter}
+              className="border border-gray-200  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
             >
               <MenuItem value={0}>All</MenuItem>
               <MenuItem value={1}>Jan</MenuItem>

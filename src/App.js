@@ -10,21 +10,22 @@ import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const App = () => {
-  const [user, setUser] = useState("");
+  const [loginUser, setLoginUser] = useState("");
   const navigate = useNavigate();
 
   const handleGoogleClick = () => {
     signInWithPopup(auth, provider).then((data) => {
-      setUser(data.user.email);
+      setLoginUser(data?.user?.email);
       localStorage.setItem("userEmail", data.user.email);
       window.location.reload();
       navigate("/");
     });
   };
+  console.log(loginUser);
 
   useEffect(() => {
     const userEmail = localStorage.getItem("userEmail");
-    setUser(userEmail);
+    setLoginUser(userEmail);
     if (userEmail) {
       navigate("/");
     }
@@ -32,7 +33,7 @@ const App = () => {
 
   return (
     <div className="max-w-sm max-h-screen mx-auto  ">
-      {user ? <Main /> : <Login handleGoogleClick={handleGoogleClick} />}
+      {loginUser ? <Main /> : <Login handleGoogleClick={handleGoogleClick} />}
     </div>
   );
 };

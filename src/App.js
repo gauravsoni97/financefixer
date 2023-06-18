@@ -7,52 +7,52 @@ import { signInWithPopup } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const App = () => {
-  const [user, loading] = useAuthState(auth);
+  // const [user, loading] = useAuthState(auth);
 
-  const [loginUser, setLoginUser] = useState("");
-  const [userData, setUserData] = useState(null);
-  const navigate = useNavigate();
+  // const [loginUser, setLoginUser] = useState("");
+  // const [userData, setUserData] = useState(null);
+  // const navigate = useNavigate();
 
-  const handleGoogleClick = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const { user } = result;
-      setLoginUser(user.email);
-      setUserData({
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        email: user.email,
-      });
-      localStorage.setItem("userEmail", user.email);
-      if (user) {
-        navigate("/");
-      } else {
-        console.log("No user found");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleGoogleClick = async () => {
+  //   try {
+  //     const result = await signInWithPopup(auth, provider);
+  //     const { user } = result;
+  //     setLoginUser(user.email);
+  //     setUserData({
+  //       displayName: user.displayName,
+  //       photoURL: user.photoURL,
+  //       email: user.email,
+  //     });
+  //     localStorage.setItem("userEmail", user.email);
+  //     if (user) {
+  //       navigate("/");
+  //     } else {
+  //       console.log("No user found");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    const userEmail = localStorage.getItem("userEmail");
-    setLoginUser(userEmail);
+  // useEffect(() => {
+  //   const userEmail = localStorage.getItem("userEmail");
+  //   setLoginUser(userEmail);
 
-    if (user) {
-      navigate("/");
-    } else {
-      console.log("No user found");
-    }
-  }, []);
+  //   if (user) {
+  //     navigate("/");
+  //   } else {
+  //     console.log("No user found");
+  //   }
+  // }, []);
 
   return (
     <div className="max-w-sm max-h-screen mx-auto">
       <Routes>
-        <Route
+        {/* <Route
           path="/login"
           element={<Login handleGoogleClick={handleGoogleClick} />}
-        />
-        <Route path="/" element={<Main userData={userData} />} />
+        /> */}
+        <Route path="/" element={<Main />} />
       </Routes>
     </div>
   );

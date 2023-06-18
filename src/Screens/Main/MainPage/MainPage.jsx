@@ -5,7 +5,7 @@ import TotalBalance from "./TotalBalance";
 import RedirectToPage from "./RedirectToPage";
 
 const MainPage = ({
-  userData,
+  
   incomeForm,
   setNeedsWantsScreen,
   setInvestmentsScreen,
@@ -14,7 +14,7 @@ totalUsedBalance,
 }) => {
   return (
     <div>
-      <HeroProfile userData={userData} />
+      <HeroProfile />
       <HeroForm incomeForm={incomeForm} />
       <TotalBalance
        totalAvailableBalance={totalAvailableBalance}

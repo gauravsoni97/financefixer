@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Login from "./Screens/Login/Login";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import Login from "./Screens/Login/Login";
 import Main from "./Screens/Main/Main";
 import { auth, provider } from "./Utils/firebase";
 import { signInWithPopup } from "firebase/auth";
@@ -10,35 +10,38 @@ const App = () => {
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
 
-  const handleGoogleClick = () => {
-    signInWithPopup(auth, provider)
-      .then((data) => {
-        setLoginUser(data?.user?.email);
-        setUserData({
-          displayName: data?.user?.displayName,
-          photoURL: data?.user?.photoURL,
-          email: data?.user?.email,
-        });
-        localStorage.setItem("userEmail", data.user.email);
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
+  const handleGoogleClick = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const { user } = result;
+      setLoginUser(user.email);
+      setUserData({
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        email: user.email,
       });
+      localStorage.setItem("userEmail", user.email);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     const userEmail = localStorage.getItem("userEmail");
     setLoginUser(userEmail);
-  }, []);
+  }, [navigate]);
+
 
   return (
     <div className="max-w-sm max-h-screen mx-auto">
-      {loginUser ? (
-        <Main userData={userData} />
-      ) : (
-        <Login handleGoogleClick={handleGoogleClick} />
-      )}
+      <Routes>
+        <Route
+          path="/login"
+          element={<Login handleGoogleClick={() => handleGoogleClick()} />}
+        />
+        <Route path="/" element={<Main userData={userData} />} />
+      </Routes>
     </div>
   );
 };

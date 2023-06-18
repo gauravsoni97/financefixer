@@ -21,7 +21,12 @@ const App = () => {
         email: user.email,
       });
       localStorage.setItem("userEmail", user.email);
-      navigate("/");
+      if (user.email) {
+        navigate("/");
+      } else {
+        navigate("/login");
+        console.log("User Id is null");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -30,16 +35,12 @@ const App = () => {
   useEffect(() => {
     const userEmail = localStorage.getItem("userEmail");
     setLoginUser(userEmail);
-  }, [navigate]);
-
+  }, []);
 
   return (
     <div className="max-w-sm max-h-screen mx-auto">
       <Routes>
-        <Route
-          path="/login"
-          element={<Login handleGoogleClick={() => handleGoogleClick()} />}
-        />
+        <Route path="/login" element={<Login handleGoogleClick={handleGoogleClick} />} />
         <Route path="/" element={<Main userData={userData} />} />
       </Routes>
     </div>

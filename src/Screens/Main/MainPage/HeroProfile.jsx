@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import myImg from "../../../assets/Images/gauravsoni.png";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 const HeroProfile = ({userData}) => {
+  const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [toggleIcon, setToggleIcon] = useState(false);
 
@@ -13,8 +15,9 @@ const HeroProfile = ({userData}) => {
   };
   const handleLogoutButton = () => {
     localStorage.removeItem("userEmail");
-    window.location.reload();
+    navigate("/login");
   };
+  
   const handleHeroDropdown = () => {
     setDropdownOpen(!dropdownOpen);
     setToggleIcon(!toggleIcon);

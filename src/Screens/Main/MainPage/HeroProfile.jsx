@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import myImg from "../../../assets/Images/gauravsoni.png";
+import { Link } from "react-router-dom";
 
 const HeroProfile = ({}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [toggleIcon, setToggleIcon] = useState(false);
-
-  const handleLogoutButton = () => {
-    localStorage.removeItem("userEmail");
-  };
 
   const handleHeroDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -51,12 +48,12 @@ const HeroProfile = ({}) => {
           >
             <ul aria-labelledby="dropdownButton">
               <li>
-                <span
-                  onClick={handleLogoutButton}
+                <Link
+                  to="/login"
                   className="text-sm dark:text-gray-200 dark:hover:text-white rounded-lg cursor-pointer"
                 >
                   Logout
-                </span>
+                </Link>
               </li>
             </ul>
           </div>

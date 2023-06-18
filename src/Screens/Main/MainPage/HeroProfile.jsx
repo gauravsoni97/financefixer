@@ -2,11 +2,24 @@ import React, { useEffect, useState } from "react";
 import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import myImg from "../../../assets/Images/gauravsoni.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../../../context/AuthContext";
 
 const HeroProfile = ({}) => {
+  const navigate = useNavigate()
+  const { user, logOut } = UserAuth();
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [toggleIcon, setToggleIcon] = useState(false);
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate('/login')
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleHeroDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -23,7 +36,7 @@ const HeroProfile = ({}) => {
         />
         <div className="mb-1 text-lg font-medium text-gray-900 dark:text-white w-[80%]  overflow-hidden truncate">
           <h1 className="mb-1 text-lg font-medium text-gray-900 dark:text-white w-[80%]  overflow-hidden truncate">
-            Hi, Gaurav
+            Hi, {user?.displayName}
           </h1>
 
           <p className="text-xs font-extralight	w-[80%]  overflow-hidden truncate text-gray-400 ">
@@ -48,12 +61,12 @@ const HeroProfile = ({}) => {
           >
             <ul aria-labelledby="dropdownButton">
               <li>
-                <Link
-                  to="/login"
-                  className="text-sm dark:text-gray-200 dark:hover:text-white rounded-lg cursor-pointer"
-                >
-                  Logout
-                </Link>
+                  <span
+                    onClick={handleLogout}
+                    className="text-sm dark:text-gray-200 dark:hover:text-white rounded-lg cursor-pointer"
+                  >
+                    Logout
+                  </span>
               </li>
             </ul>
           </div>

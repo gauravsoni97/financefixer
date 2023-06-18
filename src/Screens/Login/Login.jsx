@@ -1,8 +1,26 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/Images/rupeelogo.png";
 import googleimg from "../../assets/Images/google.png";
-
+import { UserAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const { googleSignIn, user } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (user !== null) {
+      navigate("/");
+    }
+  }, [user]);
+
   return (
     <div className="h-screen max-w-sm w-screen flex items-start justify-center p-2 max-w-sm max-h-screen mx-auto ">
       <section className=" h-screen max-w-sm w-screen flex items-center justify-center  bg-gray-50 dark:bg-gray-900">
@@ -17,6 +35,7 @@ const Login = () => {
                 <ul className="my-4 space-y-3">
                   <li>
                     <span
+                      onClick={handleGoogleSignIn}
                       className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                     >
                       <img

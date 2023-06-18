@@ -31,16 +31,16 @@ const HeroProfile = ({}) => {
       <div className="flex  items-center w-[80%] ">
         <img
           className="w-12 h-12 mr-3 rounded-full shadow-lg"
-          src={myImg}
+          src={user?.photoURL}
           alt="Profile Image"
         />
         <div className="mb-1 text-lg font-medium text-gray-900 dark:text-white w-[80%]  overflow-hidden truncate">
-          <h1 className="mb-1 text-lg font-medium text-gray-900 dark:text-white w-[80%]  overflow-hidden truncate">
+          <h1 className=" capitalize mb-1 text-lg font-medium text-gray-900 dark:text-white w-[80%]  overflow-hidden truncate">
             Hi, {user?.displayName}
           </h1>
 
           <p className="text-xs font-extralight	w-[80%]  overflow-hidden truncate text-gray-400 ">
-            gauravsoni8414@gmail.com
+          {user?.email}
           </p>
         </div>
       </div>

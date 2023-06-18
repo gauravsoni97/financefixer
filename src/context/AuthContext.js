@@ -11,10 +11,11 @@ import { auth } from "../Utils/firebase";
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
+
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
+    signInWithPopup(auth, provider);
   };
 
   const logOut = () => {
@@ -22,17 +23,19 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscrible = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null); // Or any other appropriate initial value for an unauthenticated user
+      }
       console.log("Current User Data", currentUser);
     });
 
     return () => {
-      unsubscrible();
+      unsubscribe();
     };
   }, []);
-
-  
 
   return (
     <AuthContext.Provider value={{ googleSignIn, logOut, user }}>

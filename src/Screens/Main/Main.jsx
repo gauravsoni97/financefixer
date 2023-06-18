@@ -198,7 +198,7 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="max-w-sm p-3">
+    <div className="p-3 max-w-sm max-h-screen mx-auto">
       {activeScreen === 0 ? (
         <MainPage
         totalAvailableBalance={totalAvailableBalance}

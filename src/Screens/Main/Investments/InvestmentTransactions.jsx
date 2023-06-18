@@ -22,7 +22,7 @@ const InvestmentTransactions = ({
           <ArrowBackIosRoundedIcon style={{ width: "16px" }} />
         </button>
         <div className="text-center w-[85%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center justify-center ml-3 p-4">
-          Investment Transactions
+          Transactions
         </div>
       </div>
 

@@ -42,7 +42,7 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ googleSignIn, logOut, user }}>
-      {!isLoading ? (
+      {isLoading ? (
         // Show loader while loading
         <div className="flex items-center justify-center h-screen w-screen">
           <Triangle

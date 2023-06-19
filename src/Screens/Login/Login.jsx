@@ -23,9 +23,9 @@ const Login = () => {
   }, [user, navigate]);
 
   return (
-    <div className="h-screen max-w-sm w-screen flex items-start justify-center  max-w-sm max-h-screen mx-auto ">
+    <div className="max-h-screen max-w-sm w-screen flex items-start justify-center  max-w-sm max-h-screen mx-auto ">
       <section className=" h-screen max-w-sm w-screen flex items-center justify-center  bg-gray-50 dark:bg-gray-900">
-        <div className="flex w-screen flex-col items-center justify-center mx-auto md:h-screen lg:py-0">
+        <div className="flex w-screen flex-col items-center justify-center mx-auto md:h-screen lg:py-0 p-6">
           <span className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white ">
             <img className="w-7 h-7 mr-2" src={logo} alt="logo" />
             Finance Fixer
@@ -35,7 +35,7 @@ const Login = () => {
               <div>
                     <span
                       onClick={handleGoogleSignIn}
-                      className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+                      className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white p-6"
                     >
                       <img
                         className="w-6 h-6"

@@ -6,7 +6,6 @@ import NeedsWants from "./NeedsWants/NeedsWants";
 import Investments from "./Investments/Investments";
 
 const Main = () => {
-
   const [activeScreen, setActiveScreen] = useState(null);
 
   const [splitAmounts, setSplitAmounts] = useState(
@@ -135,20 +134,18 @@ const Main = () => {
   });
 
   // --------------------------------------- Balance Check ----------------
-  
+
   let needsWantsTotalListSum = arrayOfNeeds
-  .map((obj) => obj.price)
-  .reduce((acc, cur) => acc + cur, 0);
+    .map((obj) => obj.price)
+    .reduce((acc, cur) => acc + cur, 0);
 
   let investTotalListSum = arrayOfInvest
-  .map((obj) => obj.price)
-  .reduce((acc, cur) => acc + cur, 0);
+    .map((obj) => obj.price)
+    .reduce((acc, cur) => acc + cur, 0);
 
-
-  const totalAvailableBalance = splitAmounts.nwFromHome + splitAmounts.invFromHome;
-  const totalUsedBalance = needsWantsTotalListSum +  investTotalListSum;
-
-
+  const totalAvailableBalance =
+    splitAmounts.nwFromHome + splitAmounts.invFromHome;
+  const totalUsedBalance = needsWantsTotalListSum + investTotalListSum;
 
   // --------------------------------------- Delete List Items ----------------
   const deleteNeedsFromList = (curInd) => {
@@ -189,8 +186,6 @@ const Main = () => {
     setFilteredInvestArray(splitArrayOfInvest);
   }, []);
 
-
-
   // -------------- on intial render  - main screen ----------------
 
   useEffect(() => {
@@ -201,8 +196,8 @@ const Main = () => {
     <div className="p-3 max-w-sm max-h-screen mx-auto">
       {activeScreen === 0 ? (
         <MainPage
-        totalAvailableBalance={totalAvailableBalance}
-        totalUsedBalance={totalUsedBalance}
+          totalAvailableBalance={totalAvailableBalance}
+          totalUsedBalance={totalUsedBalance}
           setNeedsWantsScreen={() => setActiveScreen(1)}
           setInvestmentsScreen={() => setActiveScreen(2)}
           incomeForm={incomeForm}

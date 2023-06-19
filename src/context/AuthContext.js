@@ -7,11 +7,13 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
+import { Triangle } from "react-loader-spinner";
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // New state for loading
 
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
@@ -27,9 +29,10 @@ export const AuthContextProvider = ({ children }) => {
       if (currentUser) {
         setUser(currentUser);
       } else {
-        setUser(null); // Or any other appropriate initial value for an unauthenticated user
+        setUser(null);
       }
-      console.log("Current User Data", currentUser);
+      setIsLoading(false); // Stop loading when auth state is changed
+      console.log("User Is =>", currentUser);
     });
 
     return () => {
@@ -39,7 +42,24 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ googleSignIn, logOut, user }}>
-      {children}
+      {!isLoading ? (
+        // Show loader while loading
+        <div className="flex items-center justify-center h-screen w-screen">
+          <Triangle
+            height="25"
+            width="25"
+            color="white"
+            ariaLabel="triangle-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+          &nbsp; Loading
+        </div>
+      ) : (
+        // Show children when loading is complete
+        children
+      )}
     </AuthContext.Provider>
   );
 };

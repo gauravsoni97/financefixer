@@ -15,7 +15,6 @@ const RangeSlider = () => {
     setSliderValue(e.target.value);
   };
 
-
   console.log(sliderValue);
 
   return (

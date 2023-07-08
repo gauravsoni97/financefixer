@@ -22,7 +22,7 @@ const RangeSlider = () => {
         <span className="text-sm">Investments</span>
       </div>
       <div className="flex items-center justify-between gap-2">
-        <div>{sliderValue ? sliderValue : rangeInputValue}%</div>
+        <div>{rangeInputValue}%</div>
         <input
           style={{ width: "85%" }}
           type="range"
@@ -32,7 +32,7 @@ const RangeSlider = () => {
           value={rangeInputValue}
           onChange={handleSliderValue}
         />
-        <div>{sliderValue ? 100 - sliderValue : 100 - rangeInputValue}%</div>
+        <div>{100 - rangeInputValue}%</div>
       </div>
     </>
   );

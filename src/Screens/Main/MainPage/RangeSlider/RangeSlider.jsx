@@ -31,7 +31,6 @@ const RangeSlider = () => {
           min={10}
           max={100}
           step={5}
-          defaultValue={70}
           value={rangeInputValue}
           onChange={handleSliderValue}
         />

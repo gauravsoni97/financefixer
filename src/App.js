@@ -4,21 +4,24 @@ import Login from "./Screens/Login/Login";
 import Main from "./Screens/Main/Main";
 import { AuthContextProvider } from "./context/AuthContext";
 import Protected from "./Protected";
+import { SliderContext } from "./context/SliderRangeValue";
 
 const App = () => {
   return (
     <AuthContextProvider>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/"
-          element={
-            <Protected>
-              <Main />
-            </Protected>
-          }
-        />
-      </Routes>
+      <SliderContext>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <Protected>
+                <Main />
+              </Protected>
+            }
+          />
+        </Routes>
+      </SliderContext>
     </AuthContextProvider>
   );
 };

@@ -8,7 +8,7 @@ const RangeSlider = () => {
   const contextValue = useSliderRangeContext();
   const { sliderValue, setSliderValue } = contextValue || {};
 
-  const [rangeInputValue, setRangeInputValue] = useState(0);
+  const [rangeInputValue, setRangeInputValue] = useState(70);
 
   const handleSliderValue = (e) => {
     setRangeInputValue(e.target.value);
@@ -25,10 +25,11 @@ const RangeSlider = () => {
         min={10}
         max={100}
         step={5}
+        defaultValue={70}
         value={rangeInputValue}
         onChange={handleSliderValue}
       />
-      <div>{sliderValue}%</div>
+      <div>{sliderValue?sliderValue:rangeInputValue}%</div>
     </div>
   );
 };

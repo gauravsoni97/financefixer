@@ -4,8 +4,12 @@ import * as Yup from "yup";
 import MainPage from "./MainPage/MainPage";
 import NeedsWants from "./NeedsWants/NeedsWants";
 import Investments from "./Investments/Investments";
+import { useSliderRangeContext } from "../../context/SliderRangeValue";
 
 const Main = () => {
+  const contextValue = useSliderRangeContext();
+  const { sliderValue } = contextValue || {};
+
   const [activeScreen, setActiveScreen] = useState(null);
 
   const [splitAmounts, setSplitAmounts] = useState(
@@ -56,8 +60,8 @@ const Main = () => {
 
     onSubmit: (values) => {
       setSplitAmounts({
-        nwFromHome: values.income * 0.7,
-        invFromHome: values.income * 0.3,
+        nwFromHome: (values.income * sliderValue) / 100,
+        invFromHome: (values.income * (100 - sliderValue)) / 100,
       });
       console.log(values);
       incomeForm.resetForm();

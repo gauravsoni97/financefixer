@@ -2,6 +2,7 @@ import React from "react";
 
 const TotalBalance = ({totalAvailableBalance,
   totalUsedBalance,}) => {
+   
   return (
     <div className="w-full max-w-sm p-8 px-6 bg-white border border-gray-200 rounded-lg shadow shadow dark:bg-gray-800 dark:border-gray-700 mb-3">
     <div className="flex justify-between mb-3">

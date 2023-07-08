@@ -15,8 +15,6 @@ const RangeSlider = () => {
     setSliderValue(e.target.value);
   };
 
-  console.log(sliderValue);
-
   return (
     <>
       <div className="flex items-center justify-between">

@@ -9,7 +9,7 @@ const TotalBalance = ({totalAvailableBalance,
         Available Balance
       </span>
       <span className="text-base font-medium text-blue-700  flex items-center dark:text-green-400">
-        ₹ {totalAvailableBalance}
+        ₹ {totalAvailableBalance - totalUsedBalance}
       </span>
     </div>
     <div className="flex justify-between">

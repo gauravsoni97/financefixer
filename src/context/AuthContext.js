@@ -32,7 +32,6 @@ export const AuthContextProvider = ({ children }) => {
         setUser(null);
       }
       setIsLoading(false); // Stop loading when auth state is changed
-      console.log("User Is =>", currentUser);
     });
 
     return () => {

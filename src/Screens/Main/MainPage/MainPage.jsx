@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroProfile from "./HeroProfile";
 import HeroForm from "./HeroForm";
 import TotalBalance from "./TotalBalance";
@@ -12,11 +12,14 @@ const MainPage = ({
   totalAvailableBalance,
   totalUsedBalance,
   setResetModal,
+  showHeroForm
 }) => {
+
+
   return (
     <div>
       <HeroProfile />
-      <HeroForm incomeForm={incomeForm} />
+      {showHeroForm ? <HeroForm incomeForm={incomeForm} /> : <></>}
       <TotalBalance
         totalAvailableBalance={totalAvailableBalance}
         totalUsedBalance={totalUsedBalance}

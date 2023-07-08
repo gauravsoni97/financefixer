@@ -9,6 +9,7 @@ import { useSliderRangeContext } from "../../context/SliderRangeValue";
 const Main = () => {
   const contextValue = useSliderRangeContext();
   const { sliderValue } = contextValue || {};
+  const [showHeroForm, setShowHeroForm] = useState(false);
 
   const [activeScreen, setActiveScreen] = useState(null);
 
@@ -196,6 +197,15 @@ const Main = () => {
     setActiveScreen(0);
   }, []);
 
+ 
+  useEffect(() => {
+    if (totalAvailableBalance - totalUsedBalance === 0) {
+      setShowHeroForm(true);
+    } else {
+      setShowHeroForm(false);
+    }
+  }, [splitAmounts]);
+
   return (
     <div className="p-3 max-w-sm max-h-screen mx-auto">
       {activeScreen === 0 ? (
@@ -205,6 +215,7 @@ const Main = () => {
           setNeedsWantsScreen={() => setActiveScreen(1)}
           setInvestmentsScreen={() => setActiveScreen(2)}
           incomeForm={incomeForm}
+          showHeroForm={showHeroForm}
         />
       ) : activeScreen === 1 ? (
         <NeedsWants
